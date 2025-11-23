@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Life System OS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+      
+      body {
+        font-family: 'Rajdhani', sans-serif;
+        background-color: #05050a;
+        color: #e2e8f0;
+        overflow-x: hidden;
+      }
+      
+      h1, h2, h3, .font-header {
+        font-family: 'Orbitron', sans-serif;
+      }
+
+      /* Cosmic Background */
+      .stars {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        background: 
+            radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+            radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+            radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
+        background-size: 550px 550px, 350px 350px, 250px 250px;
+        background-position: 0 0, 40px 60px, 130px 270px;
+        z-index: -2;
+        opacity: 0.6;
+      }
+
+      .nebula {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+            radial-gradient(circle at 15% 50%, rgba(76, 29, 149, 0.15), transparent 50%),
+            radial-gradient(circle at 85% 30%, rgba(124, 58, 237, 0.15), transparent 50%),
+            radial-gradient(circle at 50% 80%, rgba(56, 189, 248, 0.1), transparent 50%);
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      /* Custom Scrollbar for Sci-fi feel */
+      ::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgba(0,0,0,0.3);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4c1d95;
+        border-radius: 2px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #7c3aed;
+      }
+
+      /* Holographic Card Effect */
+      .holo-card {
+        background: rgba(15, 23, 42, 0.4);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      }
+      
+      .holo-card:hover {
+        border-color: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 0 15px rgba(124, 58, 237, 0.1);
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Rajdhani', 'sans-serif'],
+              header: ['Orbitron', 'sans-serif'],
+            },
+            colors: {
+              sys: {
+                bg: '#030305',
+                card: 'rgba(17, 24, 39, 0.6)',
+                border: 'rgba(255, 255, 255, 0.1)',
+                // Neon Neon Palette
+                red: '#ff2a6d',    // Musts (Neon Pink/Red)
+                orange: '#ff9f1c', // Shoulds (Neon Orange)
+                green: '#05d9e8',  // Coulds (Cyan/Electric Blue)
+                yellow: '#d1f7ff', // Woulds (Ice White/Blue)
+                
+                // Accents
+                void: '#05050a',
+                primary: '#7c3aed', // Electric Violet
+                secondary: '#2dd4bf', // Teal
+              }
+            },
+            animation: {
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div class="stars"></div>
+    <div class="nebula"></div>
+    <div id="root"></div>
+  </body>
+</html>
